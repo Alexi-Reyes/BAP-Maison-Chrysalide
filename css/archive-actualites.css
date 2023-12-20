@@ -3,15 +3,27 @@
         all: unset;
     }
 
+    .carousel-wrapper {
+        display: flex;
+        align-items: center;
+        margin-inline: 20px;
+    }
+
     #carouselExample {
         height: 550px;
         display: flex;
         margin-inline: 40px;
     }
 
+    .carousel-inner {
+        display: flex;
+        align-items: center;
+    }
+
     .carousel-item>img {
         max-height: 550px;
-        height: auto;
+        height: 100%;
+        width: auto;
     }
 
     .carousel-control-next-icon, .carousel-control-prev-icon {
@@ -20,15 +32,13 @@
     }
 
     .carousel-control-prev {
-        position: absolute;
-        top: 75%;
-        left: 0;
+        top: 0;
+        left: 10%;
     }
 
     .carousel-control-next {
-        position: absolute;
-        top: 75%;
-        right: 0;
+        top: 0;
+        right: 10%;
     }
 
     .site-main {
@@ -56,15 +66,7 @@
         margin-bottom: 20px;
     }
 
-    .actus-wrapper .actu:nth-child(4n), .actu:nth-child(5n), .actu:nth-child(6n) {
-        h3, button {
-            color: #0357FF;
-        }
 
-        button {
-            border-color: #0357FF;
-        }
-    }
     
     .actu {    
         display: flex;
@@ -104,17 +106,7 @@
             grid-template-columns: 1fr 1fr;
         }
 
-        .actus-wrapper .actu:nth-child(5n), .actu:nth-child(6n) {
-            h3, button {
-                color: #FF8000;
-            }
-    
-            button {
-                border-color: #FF8000;
-            }
-        }
-
-        .actus-wrapper .actu:nth-child(3n), .actu:nth-child(4n) {
+        .actus-wrapper .actu:nth-child(4n-2), .actu:nth-child(4n-3) {
             h3, button {
                 color: #0357FF;
             }
@@ -136,12 +128,14 @@
 
         .actus-wrapper {
             margin-inline: 0px;
+            column-gap: 20px;
         }
     }
 
-    @media (max-width: 600px) {
-        #carouselExemple {
+    @media (max-width: 400px) {
+        #carouselExample {
             height: 250px !important;
+            margin-inline: 0px !important;
         }
     }
 

@@ -15,49 +15,51 @@ $carousel_image_counter = 0;
   
 		<h2 class="title-photos">Galerie photos</h2>
 
-		<div id="carouselExample" class="carousel slide">
-			<div class="carousel-inner">
+		<div class="carousel-wrapper">
+			<button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				<span class="visually-hidden">Previous</span>
+			</button>
+			<div id="carouselExample" class="carousel slide">
+				<div class="carousel-inner">
 
-				<?php 
-				$args1 = array(
-					'post_type' => 'galerie'
-				);
-				
-				$query1 = new WP_Query($args1); ?>
+					<?php 
+					$args1 = array(
+						'post_type' => 'galerie'
+					);
+					
+					$query1 = new WP_Query($args1); ?>
 
-				<?php if ($query1->have_posts()) {
-					while ($query1->have_posts()) {
-						$query1->the_post(); ?>
+					<?php if ($query1->have_posts()) {
+						while ($query1->have_posts()) {
+							$query1->the_post(); ?>
 
-						<?php if ($carousel_image_counter == 0) { ?>
+							<?php if ($carousel_image_counter == 0) { ?>
 
-							<div class="carousel-item active">
-								<?php the_post_thumbnail(); ?>
-							</div>
-						
-							<?php $carousel_image_counter += 1; 
-				
-						} else { ?>
-							<div class="carousel-item">
-								<?php the_post_thumbnail(); ?>
-							</div>
-						<?php }
-					} 
-				} else {
-					echo 'No posts found for custom post type 1.';
-				}
-		
-				wp_reset_postdata(); ?> 
+								<div class="carousel-item active">
+									<?php the_post_thumbnail(); ?>
+								</div>
+							
+								<?php $carousel_image_counter += 1; 
+					
+							} else { ?>
+								<div class="carousel-item">
+									<?php the_post_thumbnail(); ?>
+								</div>
+							<?php }
+						} 
+					} else {
+						echo 'No posts found for custom post type 1.';
+					}
+			
+					wp_reset_postdata(); ?> 
+				</div>
 			</div>
+			<button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+				<span class="carousel-control-next-icon" aria-hidden="true"></span>
+				<span class="visually-hidden">Next</span>
+			</button>
 		</div>
-		<button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-			<span class="visually-hidden">Previous</span>
-		</button>
-		<button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-			<span class="carousel-control-next-icon" aria-hidden="true"></span>
-			<span class="visually-hidden">Next</span>
-		</button>
 
 		<h2 class="title-actus">Galerie des actualités</h2>
 
@@ -76,7 +78,11 @@ $carousel_image_counter = 0;
 				$query2->the_post();
 			
 				?><div class="actu">
-					<?php the_post_thumbnail(); ?>
+					<?php if (has_post_thumbnail()) {
+						the_post_thumbnail();
+					} else {
+						?> <img src="/chrysalide/wp-content/themes/my_theme/icons/image-default.svg" alt=""> <?php
+					} ?>
 				  	<h3><?php the_title(); ?></h3>
 				  	<?php the_excerpt(); ?>
 					<div class="button-wrapper">
