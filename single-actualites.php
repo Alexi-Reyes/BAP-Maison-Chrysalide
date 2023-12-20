@@ -17,8 +17,13 @@ get_header();
 		 <?php
 		 while ( have_posts() ) : 
 			the_post();
+
+			if (has_post_thumbnail()) {
+				the_post_thumbnail();
+			} else {
+				?> <img src="/chrysalide/wp-content/themes/my_theme/icons/image-default.svg" alt=""> <?php
+			} ?>
 			 
-			the_post_thumbnail(); ?>
 			<h2><?php the_title(); ?></h2>
 			<p><?php the_excerpt(); ?></p>
 		
