@@ -11,6 +11,7 @@
 
     .carousel-item>img {
         max-height: 550px;
+        height: auto;
     }
 
     .carousel-control-next-icon, .carousel-control-prev-icon {
@@ -20,13 +21,13 @@
 
     .carousel-control-prev {
         position: absolute;
-        top: 50%;
+        top: 75%;
         left: 0;
     }
 
     .carousel-control-next {
         position: absolute;
-        top: 50%;
+        top: 75%;
         right: 0;
     }
 
@@ -67,7 +68,7 @@
     
     .actu {    
         display: flex;
-        justify-content: end;
+        justify-content: space-around;
         flex-direction: column;
 
         justify-self: center;
@@ -102,6 +103,26 @@
         .actus-wrapper {
             grid-template-columns: 1fr 1fr;
         }
+
+        .actus-wrapper .actu:nth-child(5n), .actu:nth-child(6n) {
+            h3, button {
+                color: #FF8000;
+            }
+    
+            button {
+                border-color: #FF8000;
+            }
+        }
+
+        .actus-wrapper .actu:nth-child(3n), .actu:nth-child(4n) {
+            h3, button {
+                color: #0357FF;
+            }
+    
+            button {
+                border-color: #0357FF;
+            }
+        }
     }
 
     @media (max-width: 800px) {
@@ -115,6 +136,12 @@
 
         .actus-wrapper {
             margin-inline: 0px;
+        }
+    }
+
+    @media (max-width: 600px) {
+        #carouselExemple {
+            height: 250px !important;
         }
     }
 

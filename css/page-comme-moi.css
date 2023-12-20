@@ -1,8 +1,17 @@
+@font-face {
+    font-family: testfont;
+    src: url("/chrysalide/wp-content/themes/my_theme/fonts/OpenDyslexic-Regular.otf") format("opentype");
+}
+
 .content-comme-moi {
     display: flex;
     align-items: center;
     flex-direction: column;
     margin-inline: 100px;
+
+    * {
+        font-family: "testfont";
+    }
 
     .welcome-image {
         background-image: url("/chrysalide/wp-content/themes/my_theme/images/image-comme-moi.png");
