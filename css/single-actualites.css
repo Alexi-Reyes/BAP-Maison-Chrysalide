@@ -1,0 +1,23 @@
+.single-actualites {
+    .site-main {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    h1, h2 {
+        color: #0357FF;
+        padding-block: 40px;
+    }
+
+    img {
+        width: 80%;
+        height: auto;
+    }
+
+    p {
+        padding-inline: 60px;
+        padding-bottom: 40px;
+        text-align: center;
+    }
+}
