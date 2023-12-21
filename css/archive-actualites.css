@@ -1,44 +1,54 @@
 .post-type-archive-actualites {
+
+    * {
+        outline: solid red 1px;
+    }
+
     button, a {
         all: unset;
     }
 
     .carousel-wrapper {
+        width: 100vw;
+        overflow: hidden;
+    }    
+
+    .gallery {
+        position: relative;
+    }
+
+    .gallery-cell {
+        width: 100vw;
         display: flex;
         align-items: center;
-        margin-inline: 20px;
+        justify-content: center;
     }
 
-    #carouselExample {
-        height: 550px;
-        display: flex;
-        margin-inline: 40px;
-    }
-
-    .carousel-inner {
-        display: flex;
-        align-items: center;
-    }
-
-    .carousel-item>img {
-        max-height: 550px;
-        height: 100%;
+    .gallery-cell>img {
+        height: 50vh;
         width: auto;
+    }
+
+    .flickity-prev-next-button {
+        width: 60px;
+        border-radius: 20px;
+        background-color: #FF8000;
+        position: absolute;
+        top: 50%;
+        opacity: 80%;
+    }
+
+    .flickity-prev-next-button.previous {
+        left: 10%;
+    }
+
+    .flickity-prev-next-button.next {
+        right: 10%;
     }
 
     .carousel-control-next-icon, .carousel-control-prev-icon {
         background-color: #FF8000;
         border-radius: 20px;
-    }
-
-    .carousel-control-prev {
-        top: 0;
-        left: 10%;
-    }
-
-    .carousel-control-next {
-        top: 0;
-        right: 10%;
     }
 
     .site-main {
@@ -117,6 +127,13 @@
         }
     }
 
+    @media (max-width: 700px) {
+        .gallery-cell>img {
+            height: 100%;
+            width: fit-content;
+        }
+    }
+
     @media (max-width: 800px) {
         .actu {
             width: 70%;
@@ -133,9 +150,8 @@
     }
 
     @media (max-width: 400px) {
-        #carouselExample {
-            height: 250px !important;
-            margin-inline: 0px !important;
+        .flickity-prev-next-button {
+            width: 40px;
         }
     }
 

@@ -10,14 +10,20 @@
 get_header();
 $carousel_image_counter = 0;
 ?>
+
 	<main id="primary" class="site-main">
   
 		<h2 class="title-photos">Galerie photos</h2>
 
 		<div class="carousel-wrapper">
-			<div class="gallery js-flickity"
-				data-flickity-options='{ "cellAlign": "left", "contain": true, "wrapAround": true, "pageDots": false }'>
-				<?php 
+			<button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				<span class="visually-hidden">Previous</span>
+			</button>
+			<div id="carouselExample" class="carousel slide">
+				<div class="carousel-inner">
+
+					<?php 
 					$args1 = array(
 						'post_type' => 'galerie'
 					);
@@ -30,14 +36,14 @@ $carousel_image_counter = 0;
 
 							<?php if ($carousel_image_counter == 0) { ?>
 
-								<div class="gallery-cell">
+								<div class="carousel-item active">
 									<?php the_post_thumbnail(); ?>
 								</div>
 							
 								<?php $carousel_image_counter += 1; 
 					
 							} else { ?>
-								<div class="gallery-cell">
+								<div class="carousel-item">
 									<?php the_post_thumbnail(); ?>
 								</div>
 							<?php }
@@ -47,8 +53,12 @@ $carousel_image_counter = 0;
 					}
 			
 					wp_reset_postdata(); ?> 
-
+				</div>
 			</div>
+			<button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+				<span class="carousel-control-next-icon" aria-hidden="true"></span>
+				<span class="visually-hidden">Next</span>
+			</button>
 		</div>
 
 		<h2 class="title-actus">Galerie des actualités</h2>
@@ -94,9 +104,8 @@ $carousel_image_counter = 0;
   
 		?>
 	</main><!-- #main -->
+	<script src="/chrysalide/wp-content/themes/my_theme/js/carousel.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-	<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
 <?php
-get_footer();
   
   
